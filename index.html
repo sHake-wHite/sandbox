@@ -3,102 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sandbox Website</title>
+    <title>Joke Generator</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .button-row {
+            display: flex;
+            gap: 1em;
+            margin-top: 1em;
+        }
+        .output-row {
+            margin-top: 1em;
+            font-style: italic;
+            min-height: 1.5em;
+            display: flex;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Sandbox Website</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
     <main>
-        <section>
-            <h2>About This Site</h2>
-            <p>This is a basic HTML template with linked CSS for styling.</p>
-            <ul>
-                <li>This website is designed for experimenting with HTML, CSS, and JavaScript.</li>
-                <li>Feel free to modify the code and see the results instantly.</li>
-                <li>Explore different layouts, styles, and interactive features.</li>
-                <li>Check back often for new tips and resources on web development.</li>
-            </ul>
-            <div class="features">
-                <h3>Features</h3>
-                <div class="feature-list">
-                    <div class="feature-item">
-                        <img src="https://via.placeholder.com/80" alt="Feature 1 Icon">
-                        <h4>Easy to Use</h4>
-                        <p>Our platform is designed with simplicity in mind, making it easy for anyone to get started quickly.</p>
-                    </div>
-                    <div class="feature-item">
-                        <img src="https://via.placeholder.com/80" alt="Feature 2 Icon">
-                        <h4>Customizable</h4>
-                        <p>Personalize your experience with a variety of themes, layouts, and settings to suit your needs.</p>
-                    </div>
-                    <div class="feature-item">
-                        <img src="https://via.placeholder.com/80" alt="Feature 3 Icon">
-                        <h4>Responsive Design</h4>
-                        <p>Enjoy seamless browsing on any device, whether you're on a desktop, tablet, or smartphone.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonials">
-                <h3>What Our Users Say</h3>
-                <blockquote>
-                    "This website made learning web development fun and accessible. Highly recommended!"
-                    <cite>- Alex T.</cite>
-                </blockquote>
-                <blockquote>
-                    "I love experimenting with new features and seeing instant results. Great resource!"
-                    <cite>- Jamie L.</cite>
-                </blockquote>
-            </div>
-
-            <div class="cta-section">
-                <h3>Get Started Today</h3>
-                <p>Sign up for our newsletter to receive the latest updates, tips, and resources directly to your inbox.</p>
-                <form class="newsletter-form">
-                    <label for="email">Email Address:</label>
-                    <input type="email" id="email" name="email" required placeholder="you@example.com">
-                    <button type="submit">Subscribe</button>
-                </form>
-            </div>
-
-            <div class="faq-section">
-                <h3>Frequently Asked Questions</h3>
-                <details>
-                    <summary>Is this website free to use?</summary>
-                    <p>Yes, all features and resources are available for free.</p>
-                </details>
-                <details>
-                    <summary>Can I contribute my own tips or resources?</summary>
-                    <p>Absolutely! We welcome community contributions. Contact us for more information.</p>
-                </details>
-                <details>
-                    <summary>Where can I find more tutorials?</summary>
-                    <p>Check our blog section for regularly updated tutorials and guides.</p>
-                </details>
-            </div>
-
-            <div class="contact-section">
-                <h3>Contact Us</h3>
-                <p>Have questions or feedback? Reach out to our team anytime.</p>
-                <ul>
-                    <li>Email: <a href="mailto:info@sandboxwebsite.com">info@sandboxwebsite.com</a></li>
-                    <li>Twitter: <a href="https://twitter.com/sandboxwebsite">@sandboxwebsite</a></li>
-                    <li>GitHub: <a href="https://github.com/sandboxwebsite">sandboxwebsite</a></li>
-                </ul>
-            </div>
-        </section>
+        <h2>Words Generator</h2>
+        <p>
+            Welcome! This simple tool lets you generate a random programming joke, an inspirational quote, or a scary quote with the click of a button.
+            Just press <strong>Tell me a joke</strong>, <strong>Inspire me</strong>, or <strong>Scare me</strong> and enjoy something new every time.
+        </p>
+        <div class="button-row">
+            <button id="jokeBtn">Tell me a joke</button>
+            <button id="quoteBtn">Inspire me</button>
+            <button id="scaryBtn">Scare me</button>
+        </div>
+        <div class="output-row">
+            <span id="outputDisplay"></span>
+        </div>
     </main>
-    <footer>
-        <p>&copy; 2024 Sandbox Website</p>
-    </footer>
+    <script src="jokes.js"></script>
+    <script src="quotes.js"></script>
+    <script src="scaryQuotes.js"></script>
+    <script>
+        // Joke generator functionality
+        document.getElementById('jokeBtn').addEventListener('click', function() {
+            const joke = getRandomJoke();
+            document.getElementById('outputDisplay').textContent = joke;
+            document.body.classList.add('joke-mode');
+            document.body.classList.remove('quote-mode', 'scary-mode');
+        });
+
+        // Quote generator functionality
+        document.getElementById('quoteBtn').addEventListener('click', function() {
+            const quote = getRandomQuote();
+            document.getElementById('outputDisplay').textContent = quote;
+            document.body.classList.add('quote-mode');
+            document.body.classList.remove('joke-mode', 'scary-mode');
+        });
+
+        // Scary quote generator functionality
+        document.getElementById('scaryBtn').addEventListener('click', function() {
+            const scary = getRandomScaryQuote();
+            document.getElementById('outputDisplay').textContent = scary;
+            document.body.classList.add('scary-mode');
+            document.body.classList.remove('joke-mode', 'quote-mode');
+        });
+    </script>
 </body>
 </html>
