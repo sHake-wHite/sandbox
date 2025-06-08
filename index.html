@@ -3,74 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sandbox Website</title>
+    <title>Joke Generator</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .button-row {
+            display: flex;
+            gap: 1em;
+            margin-top: 1em;
+        }
+        .output-row {
+            margin-top: 1em;
+            font-style: italic;
+            min-height: 1.5em;
+            display: flex;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Sandbox Website</h1>
-        <nav>
-            <a href="#">Home</a> |
-            <a href="#">About</a> |
-            <a href="#">Contact</a>
-        </nav>
-    </header>
     <main>
-        <h2>About This Site</h2>
-        <p>This is a sandbox website for testing and learning web development.</p>
-        <section>
-            <h3>Features</h3>
-            <ul>
-                <li>Responsive design</li>
-                <li>Modern CSS styling</li>
-                <li>Dark mode support</li>
-                <li>Easy to customize</li>
-            </ul>
-        </section>
-        <section>
-            <h3>Contact Us</h3>
-            <form id="contactForm">
-                <label for="name">Name:</label><br>
-                <input type="text" id="name" name="name"><br><br>
-                <label for="email">Email:</label><br>
-                <input type="email" id="email" name="email"><br><br>
-                <label for="message">Message:</label><br>
-                <textarea id="message" name="message" rows="4"></textarea><br><br>
-                <button type="submit">Send</button>
-            </form>
-        </section>
-        <section>
-            <h3>Random Joke Generator</h3>
+        <h2>Words Generator</h2>
+        <p>
+            Welcome! This simple tool lets you generate a random programming joke, an inspirational quote, or a scary quote with the click of a button.
+            Just press <strong>Tell me a joke</strong>, <strong>Inspire me</strong>, or <strong>Scare me</strong> and enjoy something new every time.
+        </p>
+        <div class="button-row">
             <button id="jokeBtn">Tell me a joke</button>
-            <p id="jokeDisplay" style="margin-top:1em;font-style:italic;"></p>
-        </section>
+            <button id="quoteBtn">Inspire me</button>
+            <button id="scaryBtn">Scare me</button>
+        </div>
+        <div class="output-row">
+            <span id="outputDisplay"></span>
+        </div>
     </main>
-    <footer>
-        <p>&copy; 2024 Sandbox Website</p>
-    </footer>
     <script src="jokes.js"></script>
+    <script src="quotes.js"></script>
+    <script src="scaryQuotes.js"></script>
     <script>
-        // Show an alert when the form is submitted
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for contacting us, ' + document.getElementById('name').value + '!');
-            this.reset();
-        });
-
-        // Example: Highlight nav link on hover
-        document.querySelectorAll('nav a').forEach(function(link) {
-            link.addEventListener('mouseenter', function() {
-                this.style.backgroundColor = '#e0e0e0';
-            });
-            link.addEventListener('mouseleave', function() {
-                this.style.backgroundColor = '';
-            });
-        });
-
         // Joke generator functionality
         document.getElementById('jokeBtn').addEventListener('click', function() {
             const joke = getRandomJoke();
-            document.getElementById('jokeDisplay').textContent = joke;
+            document.getElementById('outputDisplay').textContent = joke;
+            document.body.classList.add('joke-mode');
+            document.body.classList.remove('quote-mode', 'scary-mode');
+        });
+
+        // Quote generator functionality
+        document.getElementById('quoteBtn').addEventListener('click', function() {
+            const quote = getRandomQuote();
+            document.getElementById('outputDisplay').textContent = quote;
+            document.body.classList.add('quote-mode');
+            document.body.classList.remove('joke-mode', 'scary-mode');
+        });
+
+        // Scary quote generator functionality
+        document.getElementById('scaryBtn').addEventListener('click', function() {
+            const scary = getRandomScaryQuote();
+            document.getElementById('outputDisplay').textContent = scary;
+            document.body.classList.add('scary-mode');
+            document.body.classList.remove('joke-mode', 'quote-mode');
         });
     </script>
 </body>
