@@ -1,5 +1,42 @@
 /* Basic website styling */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #181a1b;
+        color: #e0e0e0;
+    }
 
+    header, footer {
+        background: #181a1b;
+        color: #fafafa;
+    }
+
+    main {
+        background: #232526;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+
+    h1, h2, h3 {
+        color: #fafafa;
+    }
+
+    a {
+        color: #4db3fa;
+    }
+
+    a:hover {
+        color: #90cdf4;
+    }
+
+    button {
+        background: #4db3fa;
+        color: #181a1b;
+    }
+
+    button:hover {
+        background: #007acc;
+        color: #fff;
+    }
+}
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f9f9f9;
