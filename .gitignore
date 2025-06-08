@@ -1,0 +1,93 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm/
+
+# Optional eslint cache
+.eslintcache
+
+# dotenv environment variables file
+.env
+.env.*.local
+
+# VS Code settings
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Build output
+dist/
+build/
+out/
+coverage/
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Package distribution
+*.tgz
+
+# Misc
+*.swp
+*.swo
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# GitHub files
+.github/
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Parcel-bundler cache
+.cache/
+
+# Next.js build output
+.next/
+
+# Svelte build output
+.svelte-kit/
+
+# Storybook build output
+storybook-static/
+
+# Mac system files
+.AppleDouble
+.LSOverride
+
+# Windows system files
+ehthumbs.db
+Desktop.ini
+
+# Linux trash folder
+.Trash-*
+
+# Temporary files
+*.tmp
+*.temp
