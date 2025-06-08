@@ -86,7 +86,8 @@ body.joke-mode .button-row button#jokeBtn:hover {
     background: #ff9800;
 }
 
-body.joke-mode .button-row button#quoteBtn {
+body.joke-mode .button-row button#quoteBtn,
+body.joke-mode .button-row button#scaryBtn {
     background: #e0e0e0;
     color: #888;
     font-family: inherit;
@@ -116,7 +117,8 @@ body.quote-mode .button-row button#quoteBtn:hover {
     background: #0d47a1;
 }
 
-body.quote-mode .button-row button#jokeBtn {
+body.quote-mode .button-row button#jokeBtn,
+body.quote-mode .button-row button#scaryBtn {
     background: #e0e0e0;
     color: #888;
     font-family: inherit;
