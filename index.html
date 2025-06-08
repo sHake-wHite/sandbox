@@ -21,6 +21,11 @@
     </style>
 </head>
 <body>
+    <nav class="navbar">
+        <a href="#" id="contactLink">Contact</a>
+        <a href="#" id="createAccountLink">Create Account</a>
+        <a href="#" id="numberGenLink">Number Generator</a>
+    </nav>
     <main>
         <h2>Words Generator</h2>
         <p>
@@ -36,6 +41,9 @@
             <span id="outputDisplay"></span>
         </div>
     </main>
+    <footer>
+        &copy; 2025 Words Generator &mdash; All rights reserved.
+    </footer>
     <script src="jokes.js"></script>
     <script src="quotes.js"></script>
     <script src="scaryQuotes.js"></script>
@@ -62,6 +70,20 @@
             document.getElementById('outputDisplay').textContent = scary;
             document.body.classList.add('scary-mode');
             document.body.classList.remove('joke-mode', 'quote-mode');
+        });
+
+        // Navbar link actions (placeholders)
+        document.getElementById('contactLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Contact page coming soon!');
+        });
+        document.getElementById('createAccountLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Create Account page coming soon!');
+        });
+        document.getElementById('numberGenLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Number Generator coming soon!');
         });
     </script>
 </body>

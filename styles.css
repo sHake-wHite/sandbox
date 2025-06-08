@@ -35,6 +35,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    text-align: center; /* <-- Add this line */
 }
 
 h1, h2, h3 {
@@ -164,4 +165,69 @@ body.scary-mode #outputDisplay {
     color: #e53935;
     font-family: 'Creepster', 'Papyrus', 'Courier New', monospace, Arial, sans-serif;
     letter-spacing: 1px;
+}
+
+/* Navigation bar styling */
+.navbar {
+    width: 100%;
+    background: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    padding: 0.75em 0;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Default navbar link background */
+.navbar a {
+    color: #fff;
+    background: #222;
+    text-decoration: none;
+    font-size: 1.05em;
+    padding: 0.5em 1.2em;
+    border-radius: 4px;
+    transition: background 0.2s, color 0.2s;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Default hover */
+.navbar a:hover,
+.navbar a:focus {
+    background: #005fa3;
+    color: #fff;
+}
+
+/* Joke mode navbar hover */
+body.joke-mode .navbar a:hover,
+body.joke-mode .navbar a:focus {
+    background: #ff9800;
+    color: #4b3f00;
+}
+
+/* Quote mode navbar hover */
+body.quote-mode .navbar a:hover,
+body.quote-mode .navbar a:focus {
+    background: #0d47a1;
+    color: #fff;
+}
+
+/* Scary mode navbar hover */
+body.scary-mode .navbar a:hover,
+body.scary-mode .navbar a:focus {
+    background: #b71c1c;
+    color: #fff;
+}
+
+/* Remove mode-specific navbar coloring for non-hover state */
+body.joke-mode .navbar a,
+body.quote-mode .navbar a,
+body.scary-mode .navbar a {
+    background: #222;
+    color: #fff;
 }
